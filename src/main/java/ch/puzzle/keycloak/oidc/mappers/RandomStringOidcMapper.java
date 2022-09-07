@@ -1,7 +1,7 @@
 package ch.puzzle.keycloak.oidc.mappers;
 
 import org.jboss.logging.Logger;
-import org.keycloak.common.util.RandomString;
+import org.keycloak.common.util.SecretGenerator;
 import org.keycloak.models.ClientSessionContext;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.ProtocolMapperModel;
@@ -91,7 +91,7 @@ public class RandomStringOidcMapper extends AbstractOIDCProtocolMapper implement
         UserModel user = userSession.getUser();
         Map<String, List<String>> attributes = user.getAttributes();
         if(!attributes.containsKey(userAttribute)) {
-            String randomString = new RandomString(randomStringLength).nextString();
+            String randomString = SecretGenerator.getInstance().randomString(randomStringLength, SecretGenerator.ALPHANUM);
             ArrayList<String> userAttributeValue = new ArrayList<>();
             userAttributeValue.add(randomString);
             userSession.getUser().setAttribute(userAttribute, userAttributeValue);
