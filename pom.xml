@@ -7,7 +7,7 @@
     <groupId>ch.puzzle.keycloak</groupId>
     <artifactId>randomstring-oidc-mapper-extension</artifactId>
     <packaging>jar</packaging>
-    <version>1.4</version>
+    <version>1.6</version>
 
     <properties>
         <!--  general settings  -->
@@ -16,7 +16,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <!--  dependency versions  -->
-        <keycloak.version>15.0.2</keycloak.version>
+        <keycloak.version>19.0.1</keycloak.version>
     </properties>
 
     <dependencies>
