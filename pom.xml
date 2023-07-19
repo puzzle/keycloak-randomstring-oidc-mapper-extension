@@ -7,7 +7,7 @@
     <groupId>ch.puzzle.keycloak</groupId>
     <artifactId>randomstring-oidc-mapper-extension</artifactId>
     <packaging>jar</packaging>
-    <version>1.6</version>
+    <version>1.7</version>
 
     <properties>
         <!--  general settings  -->
@@ -16,7 +16,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <!--  dependency versions  -->
-        <keycloak.version>19.0.1</keycloak.version>
+        <keycloak.version>22.0.0</keycloak.version>
     </properties>
 
     <dependencies>
@@ -51,7 +51,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>""
+                <version>3.2.0</version>
                 <configuration>
                     <archive>
                         <!-- This is required since we need to add the jboss module references
@@ -59,7 +59,8 @@
                         <manifestEntries>
                             <!-- Adding explicit dependencies to avoid class-loading issues at runtime -->
                             <Dependencies>
-                                <![CDATA[org.keycloak.keycloak-common,org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi,org.keycloak.keycloak-server-spi-private,org.apache.httpcomponents,org.keycloak.keycloak-services,org.jboss.logging,javax.api,javax.jms.api,javax.transaction.api,com.fasterxml.jackson.core.jackson-core,com.fasterxml.jackson.core.jackson-annotations,com.fasterxml.jackson.core.jackson-databind]]></Dependencies>
+                                <![CDATA[org.keycloak.keycloak-common,org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi,org.keycloak.keycloak-server-spi-private,org.apache.httpcomponents,org.keycloak.keycloak-services,org.jboss.logging,jakarta.api,jakarta.jms.api,jakarta.transaction.api,com.fasterxml.jackson.core.jackson-core,com.fasterxml.jackson.core.jackson-annotations,com.fasterxml.jackson.core.jackson-databind]]>
+                            </Dependencies>
                         </manifestEntries>
                     </archive>
                 </configuration>
